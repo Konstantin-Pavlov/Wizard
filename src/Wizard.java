@@ -35,8 +35,34 @@ class Wizard {
         }
     }
 
+    /* Casts the spell, incendio, at opponent. Details:
+     * name: incendio
+     * MP cost: 20
+     * Attack power: 70
+     */
+    void incendio(Wizard opponent) {
+        // calling the attack method with the proper arguments for this spell.
+        attack(opponent, "incendio", 20, 70);
+
+
+    }
+
+    /* Casts the spell, sectumsempra, at opponent. Details:
+     * name: sectumsempra
+     * MP cost: 100
+     * Attack power: 200
+     */
+    void sectumsempra(Wizard opponent) {
+        // calling the attack method with the proper arguments for this spell.
+
+        attack(opponent, "sectumsempra", 100, 200);
+    }
+
     /* Generates a random number based on the Wizard's luck and returns true
    if it's sufficiently large */
+    /*
+    The authors of the course did not provide an implementation of the method So I came up with my own
+    * */
     boolean evades() {
         Random rand = new Random(); //instance of random class
         int upperbound = 15;
