@@ -152,6 +152,12 @@ class Wizard {
         return this.luck * int_random > 100;
     }
 
+    // getting random number between 0 and 1
+    private static double getRandomDouble() {
+        Random r = new Random();
+        return r.nextDouble();
+    }
+
     void printStatus() {
         System.out.println("Character: " + this.name);
         System.out.println("HP: " + this.hp + ", MP: " + this.mp);
