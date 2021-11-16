@@ -48,8 +48,6 @@ class Wizard {
     void incendio(Wizard opponent) {
         // calling the attack method with the proper arguments for this spell.
         attack(opponent, "incendio", 20, 70);
-
-
     }
 
     /* Casts the spell, sectumsempra, at opponent. Details:
@@ -59,11 +57,38 @@ class Wizard {
      */
     void sectumsempra(Wizard opponent) {
         // calling the attack method with the proper arguments for this spell.
-
         attack(opponent, "sectumsempra", 100, 200);
     }
 
-    /* Complete the three method bodies below */
+    void takeTurn(Wizard opponent) {
+/*
+
+    if: if this Wizard's mp is less than 50, this casts accioMP to restore MP
+    else if: otherwise, if this's hp is less than 100, this casts reparo to restore HP
+    else: otherwise, there is a 50% chance that this will cast incendio at opponent and a 50% chance that this will     cast sectumsempra at opponent
+
+*/
+        if(mp < 50) {
+            accioMP();
+        }
+        else if (hp < 100) {
+            reparo();
+        }
+        else {
+            // the next line gets a random number between 0.0 and 1.0
+        /*
+        If num is less than or equal to 0.5, this should cast incendio and if not,
+        this should cast sectumsempra at opponent
+        */
+            double num = getRandomDouble();
+            if (num <= 0.5) {
+                incendio(opponent);
+            }
+            else {
+                sectumsempra(opponent);
+            }
+        }
+    }
 
     /* Casts the spell, reparo, to restore HP.
      * Restores 100 HP for this Wizard

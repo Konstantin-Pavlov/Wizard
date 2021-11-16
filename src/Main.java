@@ -1,7 +1,7 @@
 public class Main {
     public static void main(String[] args) {
         // https://stepik.org/lesson/313241/step/2?unit=295758
-        Wizard harryPotter = new Wizard("Harry Potter", "Gryffindor", 400, 200, 30);
+        Wizard harryPotter = new Wizard("Harry Potter", "Gryffindor", 400, 200, 38);
         Wizard voldemort = new Wizard("Voldemort", "Slytherin", 800, 500, 10);
         Wizard albusDumbledore = new Wizard("Albus Dumbledore", "Gryffindor", 1000, 900, 34);
         Wizard gellertGrindelwald = new Wizard("Gellert Grindelwald", "Durmstrang", 900, 800, 23);
@@ -47,10 +47,12 @@ public class Main {
             }
 
             if(isHarrysTurn){
-                harryPotter.incendio(voldemort);
+//                harryPotter.incendio(voldemort);// outdated
+                harryPotter.takeTurn(voldemort);
             }
             else{
-                voldemort.sectumsempra(harryPotter);
+//                voldemort.sectumsempra(harryPotter);// outdated
+                voldemort.takeTurn(harryPotter);
             }
 
             harryPotter.printStatus();
@@ -76,6 +78,8 @@ public class Main {
         else {
             System.out.println("But The Dark Lord has vanquished the Boy Who Lived!");
         }
+
+
 
 
         /*
