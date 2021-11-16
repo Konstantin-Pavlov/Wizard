@@ -12,6 +12,22 @@ public class Main {
         Wizard severusSnape = new Wizard("Severus Snape", "Slytherin", 790, 710, 31);
         Wizard nevilleLongbottom = new Wizard("Neville Longbottom", "Gryffindor", 200, 80, 4);
 
+        /* Incendio: - deals 70 damage to opponent's HP
+         *           - costs 20 MP
+         *           - does not restore HP of caster
+         *           - does not restore MP of the caster
+         *           - does not increase the caster's luck
+         */
+        Spell incendio = new Spell("incendio", true, 20, 0, 0, 0, 0);
+
+        /* Felix felices:   - deals 0 damage to opponent's HP
+         *                  - costs 170 MP
+         *                  - restores 100 HP of caster
+         *                  - does not restore MP of the caster
+         *                  - increases the caster's luck by 1
+         */
+        Spell felixFelices = new Spell("felix felices", false, 170, 100, 0, 1, 0);
+
 
 //        harryPotter.attack(voldemort, "incendio", 20, 70); // outdated
 
