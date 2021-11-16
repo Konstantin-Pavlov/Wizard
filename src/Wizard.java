@@ -15,6 +15,11 @@ class Wizard {
         this.luck = luck;
     }
 
+    //checking if the wizard is able to attack
+    boolean cantAttack(int mpCost){
+        return this.mp <= mpCost;
+    }
+
     // Complete the method body below. It should not include a call to printStatus()
     //Harry Potter casts incendio and Voldemort takes 70 damage!
     //Harry Potter couldn't cast sectumsempra! Not enough MP.
