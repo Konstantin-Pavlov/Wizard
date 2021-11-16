@@ -79,6 +79,29 @@ class Wizard {
         else {
             System.out.println("There wasn't spell like that!");
         }
+    }
+
+    // Used to boost a Wizard's stats
+    void levelUp(int hpIncrease, int mpIncrease, int luckIncrease, int spellCountIncrease) {
+        // update hp, mp, and luck here
+        hp += hpIncrease;
+        mp += mpIncrease;
+        luck += luckIncrease;
+
+        /*       Creating a new array whose length is spellCountIncrease longer than
+         *       the current length of spells. If the length of spells is currently n,
+         *       then this new array should fill its first n elements with the Spells
+         *       in the elements of spells. The rest of the elements should stay null
+         *
+         *       Finally, assign spells to this new array variable to update spells to
+         *       reference this new array that you just created and filled.
+         */
+
+        Spell[] increasedSpells = new Spell[spells.length + spellCountIncrease];
+        for(int i = 0; i < spells.length; i++){
+            increasedSpells[i] = spells[i];
+        }
+        spells = increasedSpells;
 
     }
 
@@ -262,7 +285,7 @@ class Wizard {
 
     void printStatus() {
         System.out.println("Character: " + this.name);
-        System.out.println("HP: " + this.hp + ", MP: " + this.mp);
+        System.out.println("HP: " + this.hp + ", MP: " + this.mp + ", LUCK: " + this.luck);
         System.out.println("=================================================");
     }
 }

@@ -53,6 +53,21 @@ public class Main {
         harryPotter.obliviate();                                // All spells are forgotten!
         harryPotter.printKnownSpells();                         // Known spells' names: {null, null, null}
 
+        System.out.println("\n");
+
+        harryPotter.learn(reparo);
+        harryPotter.learn(felixFelices);
+        harryPotter.learn(sectumsempra);
+
+        harryPotter.levelUp(100,50,4,2);
+        harryPotter.printStatus();
+        /*
+        Character: Harry Potter
+        HP: 500, MP: 250, LUCK: 42
+        =================================================
+        */
+        harryPotter.printKnownSpells(); // Known spells' names: {reparo, felix felices, sectumsempra, null, null}
+
 
 
         // battle simulation
@@ -147,7 +162,5 @@ public class Main {
         nevilleLongbottom.felixFelices(); // Neville Longbottom couldn't cast felix felices! Not enough MP.
         */
 
-
     }
-
 }
