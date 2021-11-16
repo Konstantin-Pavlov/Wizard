@@ -58,6 +58,81 @@ class Wizard {
         attack(opponent, "sectumsempra", 100, 200);
     }
 
+    /* Complete the three method bodies below */
+
+    /* Casts the spell, reparo, to restore HP.
+     * Restores 100 HP for this Wizard
+     * MP cost: 50
+     */
+    void reparo() {
+        int hpIncrease = 100;
+        int mpCost = 50;
+        String name = "reparo";
+
+        /* TODO: if this Wizard has enough MP, then:
+         *       - increase this Wizard's hp by 100
+         *       - decrease this Wizard's mp by 50
+         *       - print message
+         *       if not:
+         *       - print other message (see sample output)
+         */
+        if(this.mp > mpCost){
+            this.hp += hpIncrease;
+            this.mp -= mpCost;
+            System.out.println(this.name + " takes a moment to heal their wounds!");
+        }
+        else{
+            System.out.println(this.name + " couldn't cast reparo! Not enough MP.");
+        }
+
+
+    }
+
+    /* Casts the spell, accio, to summon more MP.
+     * Restores 150 MP for this Wizard
+     * MP Cost: 0
+     */
+    void accioMP() {
+        String name = "accio mp";
+        int mpIncrease = 150;
+        this.mp += mpIncrease;
+        /* TODO: - increase this Wizard's mp by 150 and print message */
+        System.out.println(this.name + " gathers some more magic!");
+
+    }
+
+    /* Casts the spell, felix felices, to restore HP and increase luckiness.
+     * Restores 100 HP for this Wizard and increases luck by 1
+     * MP Cost: 170
+     */
+    void felixFelices() {
+        int hpIncrease = 100;
+        int luckIncrease = 1;
+        int mpCost = 170;
+        String name = "felix felices";
+
+
+        /* TODO: if this Wizard has enough MP, then:
+         *       - increase this Wizard's hp by 100
+         *       - increase this Wizard's luck by 1
+         *       - decrease this Wizard's mp by 170
+         *       - print message
+         *       if not:
+         *       - print other message (see sample output)
+         */
+
+        if(this.mp > mpCost){
+            this.hp += hpIncrease;
+            this.luck += luckIncrease;
+            this.mp -= mpCost;
+            System.out.println(this.name + " restores HP and increases luck!");
+        }
+        else{
+            System.out.println(this.name + " couldn't cast felix felices! Not enough MP.");
+        }
+
+    }
+
     /* Generates a random number based on the Wizard's luck and returns true
    if it's sufficiently large */
     /*

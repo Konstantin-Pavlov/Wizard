@@ -8,6 +8,7 @@ public class Main {
         Wizard albusDumbledore = new Wizard("Albus Dumbledore", "Gryffindor", 1000, 900, 34);
         Wizard gellertGrindelwald = new Wizard("Gellert Grindelwald", "Durmstrang", 900, 800, 23);
         Wizard dracoMalfoy = new Wizard("Draco Malfoy", "Slytherin", 500, 150, 28);
+        Wizard mcgonagall = new Wizard("Minerva McGonagall", "Gryffindor", 820, 670, 33);
 
 
 //        harryPotter.attack(voldemort, "incendio", 20, 70); // outdated
