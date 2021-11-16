@@ -6,13 +6,17 @@ class Wizard {
     int hp;
     int mp;
     int luck;
+    Spell[] spells;    // represents the list of spells that a Wizard has learned to cast
 
+    /* All wizards have a starting maximum of 3 Spells they can know(length of spells must be 3)
+     * At first, a Wizard knows no Spells (all elements of spells are null)    */
     Wizard(String name, String house, int hp, int mp, int luck) {
         this.name = name;
         this.house = house;
         this.hp = hp;
         this.mp = mp;
         this.luck = luck;
+        this.spells = new Spell[3];  // elements start as {null, null, null}
     }
 
     //checking if the wizard is able to attack

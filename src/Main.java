@@ -28,6 +28,11 @@ public class Main {
          */
         Spell felixFelices = new Spell("felix felices", false, 170, 100, 0, 1, 0);
 
+        /*
+        we could "teach" Harry how to cast incendio by creating a Wizard object
+        for Harry and a Spell object for indendio, then adding the Spell to his spells array:
+        * */
+        harryPotter.spells[0] = incendio;    // "teaching" Harry the spell, incendio
 
 //        harryPotter.attack(voldemort, "incendio", 20, 70); // outdated
 
