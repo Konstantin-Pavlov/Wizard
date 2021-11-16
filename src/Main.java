@@ -26,15 +26,28 @@ public class Main {
          *                  - does not restore MP of the caster
          *                  - increases the caster's luck by 1
          */
-        Spell felixFelices = new Spell("felix felices", false, 170, 100, 0, 1, 0);
+        Spell felixFelices = new Spell("felix felices", false, 170, 100, 0, 1, 1);
+
+        Spell sectumsempra = new Spell("sectumsempra",true,200,100,0,0,0);
+        Spell reparo = new Spell("reparo",false,0,100,50,0,0);
+        Spell accioMP = new Spell("accioMP",false,0,0,0,150,0);
 
         /*
         we could "teach" Harry how to cast incendio by creating a Wizard object
         for Harry and a Spell object for indendio, then adding the Spell to his spells array:
         * */
-        harryPotter.spells[0] = incendio;    // "teaching" Harry the spell, incendio
+        harryPotter.spells[0] = incendio;    // "teaching" Harry the spell incendio
 
 //        harryPotter.attack(voldemort, "incendio", 20, 70); // outdated
+
+
+        harryPotter.learn(felixFelices);    // Harry Potter learned how to cast felix felices!
+        harryPotter.printKnownSpells();     // Known spells' names: {incendio, felix felices, null}
+        harryPotter.learn(reparo);          // Harry Potter learned how to cast felix reparo!
+        harryPotter.learn(sectumsempra);    // Harry Potter can't learn any more spells!
+        harryPotter.printKnownSpells();     // Known spells' names: {incendio, felix felices, reparo}
+
+
 
         // battle simulation
         // until one wizard defeats the other.
@@ -45,6 +58,7 @@ public class Main {
         and continuing to battle
         until either character's HP becomes less than or equal to 0.
         * */
+        /*
         boolean isHarrysTurn = true;
         boolean harryRunOutOfmp = false;
         boolean voldemortRunOutOfmp = false;
@@ -100,7 +114,7 @@ public class Main {
             System.out.println("But The Dark Lord has vanquished the Boy Who Lived!");
         }
 
-
+        */
 
 
         /*

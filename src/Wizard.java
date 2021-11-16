@@ -19,6 +19,42 @@ class Wizard {
         this.spells = new Spell[3];  // elements start as {null, null, null}
     }
 
+
+    /* If you find a null element in this.spells, then assign toLearn
+     * to that element. If there are multiple null elements in it, toLearn
+     * should be assigned to the first (lowest) index encountered.
+     *
+     * For example, if all three elements are null, then calling
+     * learn should assign toLearn to the lowest index, 0. If
+     * index 0 and index 2 are null, then learn should  assign
+     * toLearn to index 1 (the lowest index that is null).
+
+     *  In either case, print out a message that matches the format in
+     *  the Sample Output.
+     */
+    void learn(Spell toLearn) {
+        boolean hasLearned = false;
+        for(int i = 0; i < spells.length; i++){
+            if(spells[i] == null){
+                spells[i] = toLearn;
+                hasLearned = true;
+                break;
+            }
+        }
+        if(hasLearned) System.out.println(name + " learned how to cast " + toLearn.name + "!");
+        else System.out.println(name + " can't learn any more spells!");
+    }
+
+    //  method for printing this wizard's known spells
+    void printKnownSpells(){
+        //Known spells' names: {incendio, felix felices, null}
+        System.out.print("Known spells' names: {");
+        for (int i = 0; i < spells.length; i++) {
+            if(spells[i] != null) System.out.print(i == spells.length - 1 ? spells[i].name + "}" : spells[i].name + ", ");
+            else System.out.print(i == spells.length - 1 ? spells[i] + "}" : spells[i] + ", ");
+        }
+    }
+
     //checking if the wizard is able to attack
     boolean cantAttack(int mpCost){
         return this.mp <= mpCost;
