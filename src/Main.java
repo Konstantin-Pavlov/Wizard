@@ -47,6 +47,12 @@ public class Main {
         harryPotter.learn(sectumsempra);    // Harry Potter can't learn any more spells!
         harryPotter.printKnownSpells();     // Known spells' names: {incendio, felix felices, reparo}
 
+        harryPotter.obliviateByName("reparo");         // reparo has been forgotten!
+        harryPotter.printKnownSpells();                         // Known spells' names: {incendio, felix felices, null}
+        harryPotter.obliviateByName("sectumsempra");   // There wasn't spell like that!
+        harryPotter.obliviate();                                // All spells are forgotten!
+        harryPotter.printKnownSpells();                         // Known spells' names: {null, null, null}
+
 
 
         // battle simulation

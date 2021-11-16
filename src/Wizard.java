@@ -1,3 +1,4 @@
+import java.util.Arrays;
 import java.util.Random;
 
 class Wizard {
@@ -45,13 +46,49 @@ class Wizard {
         else System.out.println(name + " can't learn any more spells!");
     }
 
+    /* Implements a Wizard "forgetting" all spells that they know
+     * All elements in this.spells should be set to null
+     */
+    void obliviate() {
+        /*
+        for(int i = 0; i < spells.length; i++){
+            spells[i] = null;
+        }
+        */
+        // another way
+        Arrays.fill(spells, null);
+        System.out.println("All spells are forgotten!");
+    }
+
+    /* Implements a Wizard "forgetting" any spell with the name toUnlearn
+     * All elements in this.spells whose name is equal to unLearn should
+     * be set to null.
+     */
+    void obliviateByName(String toUnlearn) {
+        boolean found = false;
+        for(int i = 0; i < spells.length; i++){
+            if(spells[i] != null && spells[i].name.equals(toUnlearn)){
+                spells[i] = null;
+                // not using break because there are could be similar spells in the spells array
+                found = true;
+            }
+        }
+        if (found) {
+            System.out.println(toUnlearn + " has been forgotten!");
+        }
+        else {
+            System.out.println("There wasn't spell like that!");
+        }
+
+    }
+
     //  method for printing this wizard's known spells
     void printKnownSpells(){
         //Known spells' names: {incendio, felix felices, null}
         System.out.print("Known spells' names: {");
         for (int i = 0; i < spells.length; i++) {
-            if(spells[i] != null) System.out.print(i == spells.length - 1 ? spells[i].name + "}" : spells[i].name + ", ");
-            else System.out.print(i == spells.length - 1 ? spells[i] + "}" : spells[i] + ", ");
+            if(spells[i] != null) System.out.print(i == spells.length - 1 ? spells[i].name + "}\n" : spells[i].name + ", ");
+            else System.out.print(i == spells.length - 1 ? spells[i] + "}\n" : spells[i] + ", ");
         }
     }
 
