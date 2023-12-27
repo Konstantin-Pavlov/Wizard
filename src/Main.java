@@ -79,7 +79,7 @@ public class Main {
         and continuing to battle
         until either character's HP becomes less than or equal to 0.
         * */
-        /*
+
         boolean isHarrysTurn = true;
         boolean harryRunOutOfmp = false;
         boolean voldemortRunOutOfmp = false;
@@ -103,11 +103,9 @@ public class Main {
             }
 
             if(isHarrysTurn){
-//                harryPotter.incendio(voldemort);// outdated
                 harryPotter.takeTurn(voldemort);
             }
             else{
-//                voldemort.sectumsempra(harryPotter);// outdated
                 voldemort.takeTurn(harryPotter);
             }
 
@@ -115,7 +113,7 @@ public class Main {
             voldemort.printStatus();
 
 
-            isHarrysTurn = !isHarrysTurn;    // flips whether or not is Harry's turn
+            isHarrysTurn = !isHarrysTurn;    // flips whether is Harry's turn
         }
 
         if(harryRunOutOfmp){
@@ -135,32 +133,29 @@ public class Main {
             System.out.println("But The Dark Lord has vanquished the Boy Who Lived!");
         }
 
-        */
+
+        System.out.println();
 
 
-        /*
         harryPotter.incendio(voldemort);
         voldemort.sectumsempra(harryPotter);
         harryPotter.printStatus();
         voldemort.printStatus();
-        */
 
-        /*
+
         System.out.println();
 
         harryPotter.sectumsempra(dracoMalfoy);
         harryPotter.printStatus();
-        dracoMalfoy.printStatus();*/
+        dracoMalfoy.printStatus();
 
 
-
-        /*
         cedricDiggory.reparo(); //Cedric Diggory couldn't cast reparo! Not enough MP.
         hermioneGranger.accioMP(); // Hermione Granger gathers some more magic!
         severusSnape.felixFelices(); //Severus Snape restores HP and increases luck!
         harryPotter.felixFelices(); // Harry Potter restores HP and increases luck!
         nevilleLongbottom.felixFelices(); // Neville Longbottom couldn't cast felix felices! Not enough MP.
-        */
+
 
     }
 }
