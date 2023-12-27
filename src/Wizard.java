@@ -1,4 +1,5 @@
 import java.util.Arrays;
+import java.util.Objects;
 import java.util.Random;
 
 class Wizard {
@@ -35,14 +36,14 @@ class Wizard {
      */
     void learn(Spell toLearn) {
         boolean hasLearned = false;
-        for(int i = 0; i < spells.length; i++){
-            if(spells[i] == null){
+        for (int i = 0; i < spells.length; i++) {
+            if (spells[i] == null) {
                 spells[i] = toLearn;
                 hasLearned = true;
                 break;
             }
         }
-        if(hasLearned) System.out.println(name + " learned how to cast " + toLearn.name + "!");
+        if (hasLearned) System.out.println(name + " learned how to cast " + toLearn.name + "!");
         else System.out.println(name + " can't learn any more spells!");
     }
 
@@ -66,8 +67,8 @@ class Wizard {
      */
     void obliviateByName(String toUnlearn) {
         boolean found = false;
-        for(int i = 0; i < spells.length; i++){
-            if(spells[i] != null && spells[i].name.equals(toUnlearn)){
+        for (int i = 0; i < spells.length; i++) {
+            if (spells[i] != null && spells[i].name.equals(toUnlearn)) {
                 spells[i] = null;
                 // not using break because there are could be similar spells in the spells array
                 found = true;
@@ -75,8 +76,7 @@ class Wizard {
         }
         if (found) {
             System.out.println(toUnlearn + " has been forgotten!");
-        }
-        else {
+        } else {
             System.out.println("There wasn't spell like that!");
         }
     }
@@ -98,25 +98,33 @@ class Wizard {
          */
 
         Spell[] increasedSpells = new Spell[spells.length + spellCountIncrease];
+
+        /*
+        //old version
         for(int i = 0; i < spells.length; i++){
             increasedSpells[i] = spells[i];
         }
+        */
+        System.arraycopy(spells, 0, increasedSpells, 0, spells.length);
         spells = increasedSpells;
-
     }
 
     //  method for printing this wizard's known spells
-    void printKnownSpells(){
-        //Known spells' names: {incendio, felix felices, null}
-        System.out.print("Known spells' names: {");
-        for (int i = 0; i < spells.length; i++) {
-            if(spells[i] != null) System.out.print(i == spells.length - 1 ? spells[i].name + "}\n" : spells[i].name + ", ");
-            else System.out.print(i == spells.length - 1 ? spells[i] + "}\n" : spells[i] + ", ");
-        }
+    void printKnownSpells() {
+        System.out.print("Known spells' names: {" +
+                String.join(
+                        ", ", Arrays
+                                .stream(spells)
+                                .filter(Objects::nonNull)
+                                .map(x -> x.name)
+                                .toArray(String[]::new)
+                ) +
+                "}\n"
+        );
     }
 
     //checking if the wizard is able to attack
-    boolean cantAttack(int mpCost){
+    boolean cantAttack(int mpCost) {
         return this.mp <= mpCost;
     }
 
@@ -124,15 +132,13 @@ class Wizard {
     //Harry Potter casts incendio and Voldemort takes 70 damage!
     //Harry Potter couldn't cast sectumsempra! Not enough MP.
     void attack(Wizard opponent, String spell, int mpCost, int attackPower) {
-        if(mpCost > this.mp){
+        if (mpCost > this.mp) {
             System.out.println(this.name + " couldn't cast " + spell + "! Not enough MP.");
-        }
-        else{
+        } else {
             this.mp -= mpCost;
-            if(opponent.evades()){
+            if (opponent.evades()) {
                 System.out.println(opponent.name + " dodges " + this.name + "!");
-            }
-            else{
+            } else {
                 opponent.hp -= attackPower;
                 System.out.println(this.name + " casts " + spell + " and " +
                         opponent.name + " takes " + attackPower + " damage!");
@@ -168,13 +174,11 @@ class Wizard {
     else: otherwise, there is a 50% chance that this will cast incendio at opponent and a 50% chance that this will     cast sectumsempra at opponent
 
 */
-        if(mp < 50) {
+        if (mp < 50) {
             accioMP();
-        }
-        else if (hp < 100) {
+        } else if (hp < 100) {
             reparo();
-        }
-        else {
+        } else {
             // the next line gets a random number between 0.0 and 1.0
         /*
         If num is less than or equal to 0.5, this should cast incendio and if not,
@@ -183,8 +187,7 @@ class Wizard {
             double num = getRandomDouble();
             if (num <= 0.5) {
                 incendio(opponent);
-            }
-            else {
+            } else {
                 sectumsempra(opponent);
             }
         }
@@ -206,12 +209,11 @@ class Wizard {
          *       if not:
          *       - print other message (see sample output)
          */
-        if(this.mp > mpCost){
+        if (this.mp > mpCost) {
             this.hp += hpIncrease;
             this.mp -= mpCost;
             System.out.println(this.name + " takes a moment to heal their wounds!");
-        }
-        else{
+        } else {
             System.out.println(this.name + " couldn't cast reparo! Not enough MP.");
         }
 
@@ -251,13 +253,12 @@ class Wizard {
          *       - print other message (see sample output)
          */
 
-        if(this.mp > mpCost){
+        if (this.mp > mpCost) {
             this.hp += hpIncrease;
             this.luck += luckIncrease;
             this.mp -= mpCost;
             System.out.println(this.name + " restores HP and increases luck!");
-        }
-        else{
+        } else {
             System.out.println(this.name + " couldn't cast felix felices! Not enough MP.");
         }
 
