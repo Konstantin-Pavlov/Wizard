@@ -7,7 +7,7 @@ class Spell {
     int mpIncrease;
     int luckIncrease;
 
-    /* Spell constructor paramters
+    /* Spell constructor parameters
      *
      * name: name of the spell
      * isOffensive: whether or not the spell attacks (e.g. reparo is not offensive)
@@ -15,7 +15,7 @@ class Spell {
      * mpCost: MP cost of casting this spell
      * hpIncrease: how much this spell raises the caster's hp
      * mpIncrease: how much this spell raises the caster's mp
-     * luckIncrease: how much this spell riases the caster's luck
+     * luckIncrease: how much this spell rises the caster's luck
      */
     Spell(String name, boolean isOffensive, int attackPower,
           int mpCost, int hpIncrease, int mpIncrease, int luckIncrease) {
